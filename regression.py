@@ -7,4 +7,8 @@ df=quandl.get("FINRA/FNRA_GOOGL", authtoken="QXLRYqyjrDN-DaW3ui8i", collapse="mo
 
 print(df.head())
 
-#df=df[['ShortVolume','TotalVolume']]
+df=df[['ShortVolume','TotalVolume']]
+df['DIF_PCT']=(df['TotalVolume']-df['ShortVolume'])/df['TotalVolume']*100.0
+
+df=df[['ShortVolume','TotalVolume','DIF_PCT']]
+print(df.head())
